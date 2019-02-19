@@ -7,6 +7,8 @@ import re
 if __name__ == '__main__':
     file_name = sys.argv[1]
     out_name = sys.argv[2]
+    #13 17 手动控制跳行
+    skip = int(sys.argv[3])
     reader = codecs.open(file_name,'r',encoding='utf-8')
     writer = codecs.open(out_name,'w',encoding='utf-8')
     # for line in reader:
@@ -19,7 +21,7 @@ if __name__ == '__main__':
     lines = reader.readlines()
     wtmp = ''
     for i in range(len(lines)):
-	if (i-13)%38<12 and (i-13)%38>0:
+	if (i-skip)%38<12 and (i-skip)%38>0:
     		line=lines[i]
         	# if re.match('pcd_filename',line.strip()):
         	# 	pcd_filename = line.strip().split('"')
